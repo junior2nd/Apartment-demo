@@ -5,21 +5,47 @@ import {
   RouterProvider,
   // Route,
 } from "react-router-dom";
-
 import './index.css';
-import ErrorPage from './pages/Error-page'
+// import ErrorPage from './pages/Error-page'
+import App from './App'
 import Home from './pages/Home'
-import Contact from './pages/Contact'  
+import MemberRegister from './pages/MemberRegister'
+import MemberInfo from './pages/MemberInfo'
+import ApartmentInfo from './pages/ApartmentInfo'
+import Tutorial from './pages/Tutorial'
+import Setting from './pages/Setting'
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "contact/",
-    element: <Contact />,
+    element: <App />,
+    // errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "Home",
+        element: <Home/>
+      },
+      {
+        path: "MemberRegister",
+        element: <MemberRegister />
+      },
+      {
+        path: "MemberInfo",
+        element: <MemberInfo />
+      },
+      {
+        path: "ApartmentInfo",
+        element: <ApartmentInfo/>
+      },
+      {
+        path: "Tutorial",
+        element: <Tutorial/>
+      },
+      {
+        path: "Setting",
+        element: <Setting/>
+      },
+    ]
   },
 
 ]);
